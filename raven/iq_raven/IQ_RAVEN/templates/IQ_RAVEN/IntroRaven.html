@@ -1,0 +1,39 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    Your task:
+                </h4>
+                <br>
+            </div>
+            <div>
+                <b>You will have 10 minutes to complete this part.</b>
+                <br>
+                This part is a test with 10 tasks.
+                <br>
+                You will see graphical patterns and your task is to add a graph that seems most logical to you.
+                Please try to solve as many tasks as possible in the given time.
+                <br><br>
+                <b>For each correct response you get an additional point.</b>
+                <br><br>
+                Click on „next“ to get to the first task.
+                As soon as you click, your 10 minutes countdown will start.
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    {% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

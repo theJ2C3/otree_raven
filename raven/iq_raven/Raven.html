@@ -1,0 +1,321 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    <!-- Include the modal defined in script below. It asks if one really wants to submit the task. -->
+    {% include "iq_raven/modal.html" %}
+
+    <!-- Display a navigation bar including the tabs to switch between the raven matrices. -->
+    <nav id="raven-navbar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#part1">Task 1</a></li>
+                <li><a href="#part2">Task 2</a></li>
+                <li><a href="#part3">Task 3</a></li>
+                <li><a href="#part4">Task 4</a></li>
+                <li><a href="#part5">Task 5</a></li>
+                <li><a href="#part6">Task 6</a></li>
+                <li><a href="#part7">Task 7</a></li>
+                <li><a href="#part8">Task 8</a></li>
+                <li><a href="#part9">Task 9</a></li>
+                <li><a href="#part10">Task 10</a></li>
+            </ul>
+
+            <div class="table">
+                <!-- Include a timer. -->
+                <div class="tr">
+                    <div class="td">
+                        <div id="time-limit2" class="alert alert-warning"
+                             style="text-align:center;">
+                            <div id="clock">
+                                <p>Time remaining for all ten tasks:
+                                    <span class="otree-timer__time-left" style="font-weight: bold"></span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Include the submit button shown on last tab only -->
+                    <div class="td">
+                        <input class="btn btn-primary btn-large btn-primary modal-button"
+                               onClick="modalOpen()" value="Submit"
+                               style="margin-right = 0px;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Raven matrix 1 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;"><br>
+            <a class="anchor" id="part1"></a>
+            <h3>Task 1</h3>
+            <div id='raven_1'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven1.jpg" %}"/></p>
+                <br>{% formfield player.raven_1 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part2" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 2 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;">
+            <a class="anchor" id="part2"></a>
+            <h3>Task 2</h3>
+            <div id='raven_2'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven2.jpg" %}"/></p>
+                <br>{% formfield player.raven_2 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part1" role="button">Back</a>
+            <a class="btn btn-primary" href="#part3" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 3 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;">
+            <a class="anchor" id="part3"></a>
+            <h3>Task 3</h3>
+            <div id='raven_3'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven3.jpg" %}"/></p>
+                <br>{% formfield player.raven_3 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part2" role="button">Back</a>
+            <a class="btn btn-primary" href="#part4" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 4 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;">
+            <a class="anchor" id="part4"></a>
+            <h3>Task 4</h3>
+            <div id='raven_4'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven4.jpg" %}"/></p>
+                <br>{% formfield player.raven_4 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part3" role="button">Back</a>
+            <a class="btn btn-primary" href="#part5" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 5 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;">
+            <a class="anchor" id="part5"></a>
+            <h3>Task 5</h3>
+            <div id='raven_5'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven5.jpg" %}"/></p>
+                <br>{% formfield player.raven_5 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part4" role="button">Back</a>
+            <a class="btn btn-primary" href="#part6" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 6 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 70cm;">
+            <a class="anchor" id="part6"></a>
+            <h3>Task 6</h3>
+            <div id='raven_6'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven6.jpg" %}"/></p>
+                <br>{% formfield player.raven_6 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part5" role="button">Back</a>
+            <a class="btn btn-primary" href="#part7" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 7 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 60cm;">
+            <a class="anchor" id="part7"></a>
+            <h3>Task 7</h3>
+            <div id='raven_7'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven7.jpg" %}"/></p>
+                <br>{% formfield player.raven_7 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part6" role="button">Back</a>
+            <a class="btn btn-primary" href="#part8" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 8 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 60cm;">
+            <a class="anchor" id="part8"></a>
+            <h3>Task 8</h3>
+            <div id='raven_8'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven8.jpg" %}"/></p>
+                <br>{% formfield player.raven_8 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part7" role="button">Back</a>
+            <a class="btn btn-primary" href="#part9" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 9 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 70cm;">
+            <a class="anchor" id="part9"></a>
+            <h3>Task 9</h3>
+            <div id='raven_9'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven9.jpg" %}"/></p>
+                <br>{% formfield player.raven_9 %}
+            </div>
+
+            <a class="btn btn-primary" href="#part8" role="button">Back</a>
+            <a class="btn btn-primary" href="#part10" role="button">Next</a>
+        </div>
+    </div>
+
+    <!-- Raven matrix 10 -->
+    <div class="tab-content">
+        <div style="padding-bottom: 30cm;">
+            <a class="anchor" id="part10"></a>
+            <h3>Task 10</h3>
+            <div id='raven_10'>
+                <p><img align="middle"
+                        src="{% static "iq_raven/Raven10.jpg" %}"/></p>
+                <br>{% formfield player.raven_10 %}
+            </div>
+            This is the final task in this section.
+            Please make sure that you have completed all ten tasks before clicking "Submit".
+            <br><br>
+            <a class="btn btn-primary" href="#part9" role="button">Back</a>
+            <input class="btn btn-primary btn-large btn-primary modal-button"
+                       onClick="modalOpen()" value="Submit"
+                       style="margin-right=0px;"/>
+        </div>
+    </div>
+    <p>. </p>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            // Let the Navbar stick to top when scrolling.
+            $('body').scrollspy({target: '#raven-navbar'});
+            var navBarHeight = $('#raven-navbar').height();
+            $('a.anchor').css({'top': -(navBarHeight + 10) + 'px'});
+
+
+            // Prevent user from using "Enter" to submit the form.
+            $(window).keydown(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        });
+
+
+        // Hide oTree's built-in time limit.
+        document.getElementById("time-limit").style.visibility = 'hidden';
+        document.getElementById("time-limit").style.position = 'fixed';
+        document.getElementById("time-limit").style.top = '-20px';
+
+        // Hide next button; show when reaching last tab.
+        var modbut = $(".modal-button");
+        modbut.attr("style", "visibility: hidden");
+        modbut.attr("value", "Abschicken");
+        window.onscroll = checkForTen;
+        function checkForTen() {
+            var itemNinePos = $('#part10').offset().top - $(window).scrollTop();
+            if (itemNinePos < 10) {
+                modbut.attr("style", "visibility: show");
+            }
+            else {
+                modbut.attr("style", "visibility: hidden");
+            }
+        }
+
+        // Open modal to ask if 'really' submitting.
+        function modalOpen() {
+            $("#SendChoices").modal('toggle');
+            var i = $("input:checked").length;
+            max = 10;
+            if (i < max) {
+                document.getElementById('modal-text').innerHTML = "You have not yet completed some tasks. Would you like to send your answers anyway?";
+            }
+            else {
+                document.getElementById('modal-text').innerHTML = "You have completed all the tasks. Do you want to send your answers?";
+            }
+        }
+    </script>
+
+{% endblock %}
+
+{% block styles %}
+    <style>
+
+        .otree-timer {
+            display: none;
+        }
+
+        a.anchor {
+            display: block;
+            position: relative;
+            top: -150px;
+            visibility: hidden;
+        }
+
+        .nav-tabs {
+            margin-bottom: 10px;
+        }
+
+        .nav-tabs li {
+            margin-right: 15px;
+        }
+
+    </style>
+
+    <style>
+
+        div.table {
+            display: table;
+            border-collapse: collapse;
+        }
+
+        div.tr {
+            display: table-row;
+        }
+
+        div.td {
+            display: table-cell;
+            border: none;
+            padding-left: 10px;
+            vertical-align: middle;
+        }
+
+    </style>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Your result
+{% endblock %}
+
+{% block content %}
+
+    {% if player.payoff == 0 %}
+        You did not solve any of the tasks correctly.
+        <!--<br>Sie erhalten daher keine zusätzliches Geld aufgezahlt.-->
+    {% endif %}
+    {% if player.payoff > 0 %}
+        You have solved {{ player.correct_answers }} tasks correctly.
+        <!--<br>Sie erhalten daher zusätzliche {{ player.payoff }} ausgezahlt.-->
+    {% endif %}
+
+    <br><br>
+    {% next_button %}
+{% endblock %}
+
+
+
