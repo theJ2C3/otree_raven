@@ -3,55 +3,72 @@
 
 
 {% block title %}
+<div id="raven-navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#part1">Task 1</a></li>
+            <li><a href="#part2">Task 2</a></li>
+            <li><a href="#part3">Task 3</a></li>
+            <li><a href="#part4">Task 4</a></li>
+            <li><a href="#part5">Task 5</a></li>
+            <li><a href="#part6">Task 6</a></li>
+            <li><a href="#part7">Task 7</a></li>
+            <li><a href="#part8">Task 8</a></li>
+            <li><a href="#part9">Task 9</a></li>
+            <li><a href="#part10">Task 10</a></li>
+        </ul>
+        <!-- Include the submit button shown on last tab only -->
+        
+        <div class="td">
+            <input class="btn btn-primary btn-large btn-primary modal-button"
+                    onClick="modalOpen()" value="繳交"
+                    style="margin-right = 0px;"/>
+        </div>
+
+        <div class = "td"   style="color: blue;">
+            <p valign="center">Time remaining
+                <span class="otree-timer__time-left" style="font-weight: bold"></span>
+                  
+            </p>
+        </div>
+        <!-- <div class="table"> -->
+            <!-- Include a timer. -->
+            <!-- <div class="tr"> -->
+                <!-- <div class="td">
+                    <div id="time-limit2" class="alert alert-warning"
+                         style="text-align:center;">
+                        <div id="clock">
+                            <p>Time remaining for all ten tasks:
+                                <span class="otree-timer__time-left" style="font-weight: bold"></span>
+                            </p>
+                            <p>Time remaining
+                                <span class="otree-timer__time-left" style="font-weight: bold"></span>
+                            </p>
+
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Include the submit button shown on last tab only -->
+                <!-- <div class="td">
+                    <input class="btn btn-primary btn-large btn-primary modal-button"
+                           onClick="modalOpen()" value="Submit"
+                           style="margin-right = 0px;"/>
+                </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</div>
 
 {% endblock %}
 {% block content %}
     <!-- Include the modal defined in script below. It asks if one really wants to submit the task. -->
     {% include "iq_raven/modal.html" %}
 
-    <!-- Display a navigation bar including the tabs to switch between the raven matrices. -->
-    <nav id="raven-navbar" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#part1">Task 1</a></li>
-                <li><a href="#part2">Task 2</a></li>
-                <li><a href="#part3">Task 3</a></li>
-                <li><a href="#part4">Task 4</a></li>
-                <li><a href="#part5">Task 5</a></li>
-                <li><a href="#part6">Task 6</a></li>
-                <li><a href="#part7">Task 7</a></li>
-                <li><a href="#part8">Task 8</a></li>
-                <li><a href="#part9">Task 9</a></li>
-                <li><a href="#part10">Task 10</a></li>
-            </ul>
-
-            <div class="table">
-                <!-- Include a timer. -->
-                <div class="tr">
-                    <div class="td">
-                        <div id="time-limit2" class="alert alert-warning"
-                             style="text-align:center;">
-                            <div id="clock">
-                                <p>Time remaining for all ten tasks:
-                                    <span class="otree-timer__time-left" style="font-weight: bold"></span>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Include the submit button shown on last tab only -->
-                    <div class="td">
-                        <input class="btn btn-primary btn-large btn-primary modal-button"
-                               onClick="modalOpen()" value="Submit"
-                               style="margin-right = 0px;"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    
 
     <!-- Raven matrix 1 -->
+
     <div class="tab-content">
         <div style="padding-bottom: 30cm;"><br>
             <a class="anchor" id="part1"></a>
@@ -204,13 +221,15 @@
                         src="{% static "iq_raven/Raven10.jpg" %}"/></p>
                 <br>{% formfield player.raven_10 %}
             </div>
-            This is the final task in this section.
-            Please make sure that you have completed all ten tasks before clicking "Submit".
+            <!-- This is the final task in this section.
+            Please make sure that you have completed all ten tasks before clicking "Submit". -->
+            這邊是本階段的最後一部分，在按下繳交按鍵之前請確定你已經完成所有的題目。
+
             <br><br>
             <a class="btn btn-primary" href="#part9" role="button">Back</a>
             <input class="btn btn-primary btn-large btn-primary modal-button"
                        onClick="modalOpen()" value="Submit"
-                       style="margin-right=0px;"/>
+                       style="margin-right = 0px;"/>
         </div>
     </div>
     <p>. </p>
@@ -265,10 +284,10 @@
             var i = $("input:checked").length;
             max = 10;
             if (i < max) {
-                document.getElementById('modal-text').innerHTML = "You have not yet completed some tasks. Would you like to send your answers anyway?";
+                document.getElementById('modal-text').innerHTML = "你尚未完成所有的題目，確定要繳交答案嗎？";
             }
             else {
-                document.getElementById('modal-text').innerHTML = "You have completed all the tasks. Do you want to send your answers?";
+                document.getElementById('modal-text').innerHTML = "你已經完成所有的題目，確定要繳交答案嗎？";
             }
         }
     </script>
@@ -291,7 +310,20 @@
 
         .nav-tabs {
             margin-bottom: 10px;
+            position: relative;
         }
+
+        div.navbar{
+            font-size: 1rem;
+            top: -5px;
+            position: fixed;
+            background-color: white;
+
+        }
+        
+        /* .otree-body { 
+        padding-top: 65px; 
+        } */
 
         .nav-tabs li {
             margin-right: 15px;
@@ -300,17 +332,21 @@
     </style>
 
     <style>
-
+        
         div.table {
             display: table;
             border-collapse: collapse;
+            position: relative;
         }
 
         div.tr {
             display: table-row;
+            position: relative;
+            
         }
 
         div.td {
+            position: relative;
             display: table-cell;
             border: none;
             padding-left: 10px;
